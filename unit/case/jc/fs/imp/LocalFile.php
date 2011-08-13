@@ -19,7 +19,7 @@ class LocalFile extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-    	$aFileSystem = new \jc\fs\imp\LocalFileSystem('/home/elephant/文档/JeCat/github/framework-test/unit/data/locale');
+    	$aFileSystem = new \jc\fs\imp\LocalFileSystem(\jc\test\unit\PATH_DATA_ROOT);
     	if(! $aFileSystem ->exists('/a.txt')){
     		$aFileSystem -> createFile('/a.txt');
     	}
@@ -92,7 +92,7 @@ class LocalFile extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
         		$this->object->hash(),
-        		md5('/home/elephant/文档/JeCat/github/framework-test/unit/data/locale/a.txt')
+        		md5(\jc\test\unit\PATH_DATA_ROOT.'/a.txt')
         );
     }
 

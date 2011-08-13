@@ -35,9 +35,7 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testFind()
     {
-    	echo "testFind()\n";
     	$this->assertEquals($this->object ->find('/a.txt'),new \jc\fs\imp\MockFSO($this->object,'/a.txt'));
-    	echo "testFind() end\n";
     }
 
     /**
@@ -45,9 +43,7 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testFindFile()
     {
-        echo "testFindFile()\n";
     	$this->assertEquals($this->object ->findFile('/a.txt'),new \jc\fs\imp\MockFSO($this->object,'/a.txt'));
-    	echo "testFindFile() end\n";
     }
 
     /**
@@ -55,9 +51,7 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testFindFolder()
     {
-        echo "testFindFolder()\n";
     	$this->assertNull($this->object ->findFolder('/a.txt'));
-    	echo "testFindFolder() end\n";
     }
 
     /**
@@ -75,7 +69,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testMount()
     {
-    	echo "testMount()\n";
     	$anotherFileSystem = new \jc\fs\imp\MockFileSystem(\jc\test\unit\PATH_DATA_ROOT.'/xx');
     	$this->object->mount('/aaa',$anotherFileSystem);
     	$this->assertEquals($this->object->find('/aaa/bbb'),new \jc\fs\imp\MockFSO($anotherFileSystem,'/bbb'));
@@ -86,7 +79,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testUmount()
     {
-    	echo "testUmount()\n";
     	$anotherFileSystem = new \jc\fs\imp\MockFileSystem(\jc\test\unit\PATH_DATA_ROOT.'/xx');
     	$this->object->mount('/aaa',$anotherFileSystem);
     	$this->assertEquals($this->object->find('/aaa/bbb'),new \jc\fs\imp\MockFSO($anotherFileSystem,'/bbb'));
@@ -99,7 +91,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testExists()
     {
-        echo "testExists()\n";
         $this->assertTrue($this->object->exists('/aaa'));
     }
 
@@ -108,7 +99,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testIsFile()
     {
-        echo "testIsFile()\n";
         $this->assertTrue($this->object->isFile('/aaa'));
     }
 
@@ -117,7 +107,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testIsFolder()
     {
-        echo "testIsFolder()\n";
         $this->assertFalse($this->object->isFolder('/aaa'));
     }
 
@@ -126,7 +115,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testCopy()
     {
-    	echo "testCopy()\n";
     	$this->object->copy('/aaa','/bbb');
     	
     }
@@ -136,7 +124,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testMove()
     {
-    	echo "testMove()\n";
     	$this->object->move('/aaa','/bbb');
     }
 
@@ -182,7 +169,6 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testParentFileSystem()
     {
-    	echo "testParentFileSystem()\n";
     	$this->assertNull($this->object->parentFileSystem());
     	$anotherFileSystem = new \jc\fs\imp\MockFileSystem(\jc\test\unit\PATH_DATA_ROOT.'/xx');
     	$anotherFileSystem -> mount('/aaa',$this->object);
@@ -240,10 +226,7 @@ class FileSystem extends \PHPUnit_Framework_TestCase
      */
     public function testRelativePath()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+    	$this->assertNull("todo");
     }
 }
 ?>

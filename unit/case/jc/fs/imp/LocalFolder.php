@@ -102,7 +102,12 @@ class LocalFolder extends \PHPUnit_Framework_TestCase
      */
     public function testIterator()
     {
-        
+    	$aFolder = $this->object->directory();
+        $aIterator = $aFolder->iterator();
+        foreach($aIterator as $str)
+        {
+        	echo "foreach:$str\n";
+        }
     }
 
     /**
